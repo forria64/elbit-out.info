@@ -1,0 +1,96 @@
+{
+  "localPartners": [
+    {
+      "name": "Solidaritate România-Palestina",
+      "nameEn": "Romania-Palestine Solidarity",
+      "logo": "solidaritate_rp.webp",
+      "url": "aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9yb21hbmlhX3BhbGVzdGluZV9zb2xpZGFyaXR5Lw=="
+    },
+    {
+      "name": "Clubul de Carte pentru Palestina",
+      "nameEn": "Book Club for Palestine",
+      "logo": "carte.webp",
+      "url": "aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9jbHVidWxkZWNhcnRlZGVzcHJlcGFsZXN0aW5hLw=="
+    },
+    {
+      "name": "Blocul Tineretului Muncitoresc",
+      "nameEn": "The Working Youth Bloc",
+      "logo": "btm.webp",
+      "url": "aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9ibG9jdWx0aW5lcmV0dWx1aW11bmNpdG9yZXNjLw=="
+    },
+    {
+      "name": "Blocul Roșu",
+      "nameEn": "The Red Bloc",
+      "logo": "br.webp",
+      "url": "aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9ibG9jdWxfcm9zdS8="
+    },
+    {
+      "name": "Căși Sociale ACUM!",
+      "nameEn": "Social Housing NOW!",
+      "logo": "csa.webp",
+      "url": "aHR0cHM6Ly9jYXNpc29jaWFsZWFjdW0ucm8v"
+    },
+    {
+      "name": "Colectiva Urzica",
+      "nameEn": "Urzica Collective",
+      "logo": "urzica.webp",
+      "url": "aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9jb2xlY3RpdmF1cnppY2Ev"
+    },
+    {
+      "name": "Federația Sindicală Hermes",
+      "nameEn": "Hermes Trade Union Federation",
+      "logo": "hermes.webp",
+      "url": "aHR0cHM6Ly9mZWRlcmF0aWFoZXJtZXMucm8v"
+    },
+    {
+      "name": "Fundraisers for Falastin RO",
+      "nameEn": "Fundraisers for Falastin RO",
+      "logo": "fff.webp",
+      "url": "aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9mdW5kcmFpc2Vyc2ZvcmZhbGFzdGlucm8v"
+    },
+    {
+      "name": "Grupul de Acțiune Socialistă",
+      "nameEn": "Socialist Action Group",
+      "logo": "gas.webp",
+      "url": "aHR0cHM6Ly9hY3RpdW5lc29jaWFsaXN0YS5vcmcv"
+    },
+    {
+      "name": "Partidul SENS",
+      "nameEn": "SENS Party",
+      "logo": "sens.webp",
+      "url": "aHR0cHM6Ly93d3cuY3VzZW5zLmV1Lw=="
+    },
+    {
+      "name": "World Beyond War Romania",
+      "nameEn": "World Beyond War Romania",
+      "logo": "wbw.webp",
+      "url": "aHR0cHM6Ly93b3JsZGJleW9uZHdhci5vcmcv"
+    },
+    {
+      "name": "Platforma L.E.F.T.",
+      "nameEn": "L.E.F.T. Platform",
+      "logo": "left.webp",
+      "url": "aHR0cHM6Ly9wbGF0Zm9ybWFsZWZ0LnJvLw=="
+    }
+  ],
+  "internationalPartners": [
+    {
+      "name": "Mișcarea pentru Boicot, Dezinvestire și Sancțiuni (BDS)",
+      "nameEn": "Boycott, Divestment and Sanctions Movement (BDS)",
+      "logo": "bds.webp",
+      "url": "aHR0cHM6Ly9iZHNtb3ZlbWVudC5uZXQv"
+    },
+    {
+      "name": "Stop ReArm Europe",
+      "nameEn": "Stop ReArm Europe",
+      "logo": "stop.webp",
+      "url": "aHR0cHM6Ly9zdG9wcmVhcm0ub3JnLw=="
+    },
+    {
+      "name": "International Peoples' Assembly",
+      "nameEn": "International Peoples' Assembly",
+      "logo": "ipa.webp",
+      "url": "aHR0cHM6Ly9pcGEtYWlwLm9yZy8="
+    }
+  ]
+}

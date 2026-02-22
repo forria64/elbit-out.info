@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://elbit-out.info/sitemap.xml

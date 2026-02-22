@@ -1,0 +1,96 @@
+{
+  "nav": {
+    "home": "ACASĂ",
+    "whyElbit": "DE CE ELBIT?",
+    "news": "ȘTIRI",
+    "whatWeWant": "CE VREM?",
+    "support": "SUSȚINE CAMPANIA",
+    "whoWeAre": "CINE SUNTEM"
+  },
+  "home": {
+    "learnMore": "Află mai multe",
+    "slides": {
+      "occupation": {
+        "title": "Stop înarmării ocupației",
+        "content": "România sprijină direct ocupația Israelului asupra Palestinei. Țara noastră găzduiește trei subsidiare ale companiei israeliene de armament Elbit Systems, care facilitează producția de tehnologii și echipament militare folosite în Fâșia Gaza și Cisiordania.\n\nExporturile de echipamente militare ale României către Israel, precum muniție, componente pentru drone, vehicule blindate sau sisteme de supraveghere transformă România într-un partener activ în menținerea regimului de apartheid și a represiunii sistematice împotriva poporului palestinian."
+      },
+      "genocide": {
+        "title": "Stop înarmării genocidului",
+        "content": "România a continuat cooperarea militară cu Israel, în ciuda constatărilor Curții Internaționale de Justiție că sunt întrunite toate condițiile pentru comiterea unui genocid în Gaza. Comerțul de armament dintre cele două state a atins niveluri record în 2023 și 2024.\n\nRomânia trebuie să suspende imediat exporturile de arme, muniții și tehnologii de supraveghere către entități implicate în aceste atrocități și să își respecte angajamentele internaționale legale și morale de a preveni și de a nu contribui la comiterea genocidului."
+      },
+      "armingIsrael": {
+        "title": "Stop înarmării Israelului",
+        "content": "Comerțul militar dintre România și Israel este ilegal și imoral atunci când există riscul că produsele sunt folosite în comiterea de crime internaționale și împotriva umanității, inclusiv în genocid și crime de război.\n\nStatele și companiile au responsabilitatea legală și etică de a se asigura că activitățile lor nu contribuie la potențiale crime de război sau la suferința civililor. Peste 2 milioane de vieți au fost distruse de acțiunile Israelului în Gaza. Comerțul militar cu Israel reprezintă o formă de complicitate în aceste crime."
+      },
+      "complicity": {
+        "title": "Stop complicității",
+        "content": "În contextul escaladării crimelor împotriva populației palestiniene din Gaza și Cisiordania, României îi revine obligația legală și morală de a-și alinia politica externă și de apărare cu dreptul internațional și la valorile fundamentale ale drepturilor omului prin:\n\n• Încetarea colaborării militare și comerciale cu compania de armament Elbit Systems pentru încălcarea dreptului internațional.\n\n• Suspendarea exporturilor și importurilor de armament către și dinspre Israel și rezilierea unilaterală a Acordului de cooperare militară bilaterală România - Israel."
+      }
+    }
+  },
+  "whyElbit": {
+    "title": "DE CE ELBIT?",
+    "intro": "În iunie 2025, Raportoarea Specială a ONU pentru situația drepturilor omului în Teritoriile Palestiniene Ocupate, Francesca Albanese, a publicat un nou raport în care reiterează concluziile anterioare privind caracterul genocidar al atacului israelian asupra Fâșiei Gaza. Raportoarea avertizează asupra responsabilității statelor terțe care continuă să furnizeze sprijin politic, financiar sau militar Israelului, în ciuda avertismentelor privind încălcările grave ale dreptului internațional. Printre companiile menționate în raportul ONU se află și Elbit Systems.",
+    "mainInfo": "Elbit Systems este principalul contractor militar privat al Israelului și furnizează tehnologii folosite pentru controlul și oprimarea populației palestiniene, inclusiv drone, sisteme de supraveghere biometrică, armament și echipamente pentru puncte de control. Compania este implicată activ în Fâșia Gaza, Cisiordania și în Ierusalimul de Est, contribuind la genocid și menținerea regimului de apartheid, documentat de Curtea Internațională de Justiție și organizațiile internaționale de drepturile omului.",
+    "romaniaRole": "România nu doar că este o importantă bază de venituri pentru Elbit Systems în Europa, dar găzduiește și cea mai activă filială, Elmet International. România găzduiește 3 subsidiare ale companiei Elbit Systems, cu 5 puncte de producție în Bacău, Măgurele și Brașov, care joacă un rol esențial în extinderea prezenței industriale a Elbit în Europa. Deși doar o parte din aceste componente sunt utilizate în Gaza și Cisiordania împotriva palestinienilor, toate tehnologiile fabricate de Elbit Systems în România au fost testate pe civilii palestinieni.",
+    "trends": "Raportul \"Elbit Out!\" evidențiază o serie de tendințe care ar trebui să ne îngrijoreze atât ca români, cât și ca cetățeni europeni. După 2 ani de la începutul genocidului din Gaza, vedem cum statul român nu doar că nu a luat nicio măsură concretă pentru a opri crimele de război împotriva palestinienilor, dar și-a întărit legăturile militare cu aparatul de stat anchetat pentru genocid. Mai mult, în contextul reînarmării europene, industria militară israeliană va juca mai mult ca sigur un rol important atât pe piața românească, cât și pe cea europeană.",
+    "downloadReport": "DESCARCĂ RAPORTUL",
+    "warning": "În acest context, România riscă să fie complice la crime internaționale dacă nu își revizuiește urgent politica de cooperare cu Elbit Systems și cu sectorul militar israelian."
+  },
+  "news": {
+    "title": "ȘTIRI",
+    "loading": "Se încarcă știrile...",
+    "errorTitle": "Știrile temporar indisponibile",
+    "errorMessage": "Sistemul de știri nu este disponibil momentan. Vă rugăm să încercați mai târziu.",
+    "empty": "Nu există știri publicate momentan.",
+    "readMore": "Citește mai mult",
+    "readLess": "Citește mai puțin"
+  },
+  "whatWeWant": {
+    "title": "CE VREM?",
+    "intro": "Campania \"Elbit Out!\" a fost creată din nevoia de a direcționa indignarea colectivă către un scop comun, realizabil. Dorim să ne alăturăm mișcării globale care cere oprirea impunității pentru statul Israel, anchetat pentru genocid și implicat într-o ocupație ilegală, și oprirea complicității statelor europene în suferința palestinienilor.",
+    "noTaxes": "În calitate de cetățeni români, nu mai vrem ca taxele și munca noastră să finanțeze crimele de război și ocupația.",
+    "collaboration": "Colaborarea cu Elbit nu este un simplu parteneriat comercial: este o formă activă de complicitate cu o arhitectură militară a violenței, o participare tăcută la dezumanizarea unui popor și la încălcare dreptului acestuia la autodeterminare și suveranitate, precum și o încălcare a drepturilor omului. România nu doar că este o importantă bază de venituri pentru Elbit Systems în Europa, dar găzduiește și cea mai activă filială de pe continent, Elmet International.",
+    "demands": "În acest context, cerem statului român următoarele:",
+    "demand1": {
+      "title": "1. Încetarea colaborării militare și comerciale cu Elbit Systems pentru încălcarea dreptului internațional",
+      "content": "Solicităm statului român să suspende orice parteneriat, contract sau cooperare tehnologică și militară cu Elbit Systems, inclusiv oprirea funcționării facilităților și subsidiarelor acestui grup pe teritoriul României.\n\nTotodată, solicităm naționalizarea facilităților deținute de Elbit Systems în România, cu scopul de a redirecționa producția către nevoi sociale. Muncitorii care lucrează în aceste fabrici nu poartă nicio vină pentru destinația actuală a producției, iar expertiza lor poate fi valorificată în sectoare care contribuie la binele comun. Transformarea acestor capacități industriale într-un model de producție pentru societate, nu pentru război, este un pas necesar spre o economie justă și responsabilă."
+    },
+    "demand2": {
+      "title": "2. Suspendarea exporturilor și importurilor de armament către și dinspre Israel și rezilierea unilaterală a Acordului de cooperare militară bilaterală România - Israel",
+      "content": "Cerem autorităților competente, în special Ministerului Afacerilor externe prin ANCEX, să oprească acordarea de licențe pentru exporturi și importuri de armament și muniție către și dinspre Israel, în contextul acuzațiilor grave de genocid, crime de război și crime împotriva umanității.\n\nSolicităm, de asemenea, rezilierea unilaterală a Acordului de cooperare militară dintre România și Israel și încetarea oricăror forme de colaborare militară actuale sau viitoare, până când statul Israel va respecta drepturile fundamentale ale omului în teritoriile palestiniene ocupate și va pune capăt genocidului din Gaza și regimului de ocupație și apartheid."
+    }
+  },
+  "support": {
+    "title": "SUSȚINE CAMPANIA",
+    "donate": {
+      "heading": "Donează",
+      "intro": "Avem nevoie de sprijinul vostru pentru ca această campanie să prindă rădăcini și să aibă impact; să organizăm evenimente, să amplificăm vocile palestinienilor și să construim presiunea necesară pentru a opri complicitatea militară a României în genocidul din Gaza și ocupația Cisiordaniei.",
+      "brick": "Fiecare donație, mică sau mare, înseamnă o cărămidă în zidul solidarității.",
+      "together": "Împreună putem rupe lanțurile complicității și putem face din România un simbol al păcii, nu al violenței și războiului.",
+      "button": "Donează acum"
+    },
+    "petition": {
+      "heading": "Participă la strângerea de semnături",
+      "movement": "Avem nevoie de o mișcare care să crească din fiecare cartier, fiecare școală, fiecare loc de muncă. Este momentul să arătăm că românilor le pasă și că refuzăm să fim tăcuți în fața uneia dintre cele mai grave nedreptăți din istorie.",
+      "callToAction": "De aceea te chemăm nu doar să semnezi, ci și să devii parte activă a campaniei. Ia petiția cu tine, arată-le prietenilor, colegilor, familiei. Explică-le de ce România nu poate continua să găzduiește fabrici de arme care ucid civili. Ajută-ne să strângem semnături, să facem cunoscut adevărul și să adunăm o forță suficient de mare încât statul să nu o mai poată ignora.",
+      "download": "Pentru a semna și distribui petiția, descarcă și printează template-ul de mai jos.",
+      "downloadButton": "Descarcă tabelul de petiție",
+      "submission": "Trimite-ne semnăturile prin poștă la adresa:",
+      "address": "Oficiul poștal nr. 15, Cluj-Napoca, căsuța poștală 10",
+      "closing": "Fiecare semnătură este o voce. Dacă tu aduni zece, înseamnă zece voci în plus. Dacă zece oameni adună fiecare câte zece, avem o sută. Acesta este un prim pas pentru a construi presiunea care va duce la schimbare."
+    },
+    "onlinePetition": {
+      "heading": "Semnează petiția online",
+      "button": "Semnează online"
+    }
+  },
+  "whoWeAre": {
+    "title": "CINE SUNTEM",
+    "intro": "Suntem o rețea de oameni și organizații care cred că România nu trebuie să fie complice la genocidul și ocupația poporului palestinian. Ne adunăm în jurul unei idei simple și puternice: solidaritatea.",
+    "coordinated": "Campania \"Elbit out!\" este coordonată de către Palestine Solidarity Cluj-Napoca (PS.CJ).",
+    "email": "Trimite-ne un mail",
+    "localPartners": "Parteneri locali",
+    "internationalPartners": "Parteneri internaționali"
+  }
+}

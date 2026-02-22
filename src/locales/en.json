@@ -1,0 +1,96 @@
+{
+  "nav": {
+    "home": "HOME",
+    "whyElbit": "WHY ELBIT?",
+    "news": "NEWS",
+    "whatWeWant": "WHAT DO WE WANT?",
+    "support": "SUPPORT THE CAMPAIGN",
+    "whoWeAre": "WHO WE ARE"
+  },
+  "home": {
+    "learnMore": "Find out more",
+    "slides": {
+      "occupation": {
+        "title": "Stop arming the occupation",
+        "content": "Romania directly supports Israel's occupation of Palestine. Our country hosts three subsidiaries of the Israeli arms company Elbit Systems, which facilitate the production of military technologies and equipment used in the Gaza Strip and the West Bank.\n\nRomania's exports of military equipment to Israel, such as ammunition, drone components, armored vehicles, or surveillance systems, turn Romania into an active partner in sustaining the apartheid regime and the systematic repression of the Palestinian people."
+      },
+      "genocide": {
+        "title": "Stop arming the genocide",
+        "content": "Romania has continued its military cooperation with Israel despite the findings of the International Court of Justice that the complete set of elements constituting genocide under international law in Gaza are met. Arms trade between the two states reached record levels in 2023 and 2024.\n\nRomania must immediately suspend exports of weapons, ammunition, and surveillance technologies to entities involved in these atrocities and comply with its international legal and moral obligations to prevent and not contribute to the commission of genocide."
+      },
+      "armingIsrael": {
+        "title": "Stop arming Israel",
+        "content": "Military trade between Romania and Israel is illegal and immoral when there is a risk that the products are used in the commission of international crimes and crimes against humanity, including genocide and war crimes.\n\nStates and companies have a legal and ethical responsibility to ensure that their activities do not contribute to potential war crimes or to civilian suffering. Over 2 million lives have been destroyed by Israel's actions in Gaza. Military trade with Israel represents a form of complicity in these crimes."
+      },
+      "complicity": {
+        "title": "Stop complicity",
+        "content": "In the context of escalating crimes against the Palestinian population in Gaza and the West Bank, Romania has a legal and moral obligation to align its foreign and defense policy with international law and fundamental human rights values by:\n\n• Ending military and commercial cooperation with the arms company Elbit Systems for violations of international law.\n\n• Suspending exports and imports of arms to and from Israel and unilaterally terminating the bilateral Romania–Israel military cooperation agreement."
+      }
+    }
+  },
+  "whyElbit": {
+    "title": "WHY ELBIT?",
+    "intro": "In June 2025, United Nations Special Rapporteur on the situation of human rights in the Occupied Palestinian Territories, Francesca Albanese, published a new report in which she reiterated her previous conclusions on the genocidal nature of the Israeli attack on the Gaza Strip. The rapporteur warns of the responsibility of third states that continue to provide political, financial or military support to Israel, despite warnings about serious violations of international law. Among the companies mentioned in the UN report is Elbit Systems.",
+    "mainInfo": "Elbit Systems is Israel's main private military contractor and it supplies technologies used to control and oppress the Palestinian population, including drones, biometric surveillance systems, weapons and equipment for checkpoints. The company is actively involved in the Gaza Strip, the West Bank and East Jerusalem, contributing to genocide and the enforcement of the apartheid regime, as documented by the International Court of Justice and international human rights organizations.",
+    "romaniaRole": "Romania is not only an important revenue base for Elbit Systems in Europe, but also hosts its most active subsidiary, Elmet International. Romania hosts 3 subsidiaries of Elbit Systems, with 5 production sites in Bacău, Măgurele and Brașov, which play a key role in expanding Elbit's industrial presence in Europe. Although only a part of these components are used in Gaza and the West Bank against Palestinians, all technologies manufactured by Elbit Systems in Romania have been tested on Palestinian civilians.",
+    "trends": "The \"Elbit Out!\" report highlights a series of trends that should worry us, both as Romanians and as European citizens. After 2 years since the start of the genocide in Gaza, we see how the Romanian state has not only failed to take any concrete measures to stop war crimes against Palestinians, but has also strengthened its military ties with the state apparatus which is being investigated for genocide. Moreover, in the context of European rearmament, the Israeli military industry will most likely play an important role in both the Romanian and European markets.",
+    "downloadReport": "DOWNLOAD THE REPORT",
+    "warning": "In this context, Romania risks being complicit in international crimes if it does not urgently review its cooperation policy with Elbit Systems and the Israeli military sector."
+  },
+  "news": {
+    "title": "NEWS",
+    "loading": "Loading news...",
+    "errorTitle": "News temporarily unavailable",
+    "errorMessage": "The news system is currently unavailable. Please try again later.",
+    "empty": "No news published at the moment.",
+    "readMore": "Read more",
+    "readLess": "Read less"
+  },
+  "whatWeWant": {
+    "title": "WHAT DO WE WANT?",
+    "intro": "The \"Elbit Out!\" campaign was created out of the need to channel the collective outrage towards a common, achievable goal. We want to join the global movement demanding an end to impunity for the state of Israel, which is under investigation for genocide and is involved in an illegal occupation, and put an end to the complicity of European states in the suffering of Palestinians.",
+    "noTaxes": "As Romanian citizens, we no longer want our taxes and work to finance war crimes and occupation.",
+    "collaboration": "Collaborating with Elbit is not a simple commercial partnership: it is an active form of complicity with a military architecture of violence, a silent participation in the dehumanization of a people and the violation of their right to self-determination and sovereignty, as well as a violation of human rights. Romania is not only an important revenue base for Elbit Systems in Europe, but also hosts the most active subsidiary on the continent, Elmet International.",
+    "demands": "In this context, we demand the following from the Romanian state:",
+    "demand1": {
+      "title": "1. Cessation of military and commercial collaboration with Elbit Systems for violating international law",
+      "content": "We demand the Romanian state to suspend any partnership, contract or technological and military cooperation with Elbit Systems, including stopping the operation of the facilities and subsidiaries of this group on Romanian territory.\n\nAt the same time, we demand the nationalization of the facilities owned by Elbit Systems in Romania, in order to redirect production to social needs. The workers who work in these factories are not to blame for the current destination of production, and their expertise can be capitalized on in sectors that contribute to the common good. Transforming these industrial capacities into a production model for society, not for war, is a necessary step towards a just and responsible economy."
+    },
+    "demand2": {
+      "title": "2. Suspension of arms exports and imports to and from Israel and unilateral termination of the Romania-Israel Bilateral Military Cooperation Agreement",
+      "content": "We call on the competent authorities, in particular the Ministry of Foreign Affairs through ANCEX, to stop granting licenses for exports and imports of arms and ammunition to and from Israel, in the context of serious allegations of genocide, war crimes and crimes against humanity.\n\nWe also call for the unilateral termination of the Military Cooperation Agreement between Romania and Israel and the cessation of any current or future forms of military collaboration, until the State of Israel respects fundamental human rights in the occupied Palestinian territories and puts an end to the genocide in Gaza and the occupation and apartheid regime."
+    }
+  },
+  "support": {
+    "title": "SUPPORT THE CAMPAIGN",
+    "donate": {
+      "heading": "Donate",
+      "intro": "We need your support for this campaign to take root and have an impact; to organize events, to amplify the voices of Palestinians and to build the necessary pressure to stop Romania's military complicity in the genocide in Gaza and the occupation of the West Bank.",
+      "brick": "Every donation, small or large, is a brick in the wall of solidarity.",
+      "together": "Together we can break the chains of complicity and make Romania a symbol of peace, not violence and war.",
+      "button": "Donate now"
+    },
+    "petition": {
+      "heading": "Join the petition campaign",
+      "movement": "We need a movement that grows from every neighborhood, every school, every workplace. It's time to show that Romanians care and that we refuse to be silent in the face of one of the worst injustices in history.",
+      "callToAction": "That's why we call on you not only to sign, but also to become an active part of the campaign. Take the petition with you, show it to your friends, colleagues, family. Explain to them why Romania cannot continue to host weapons factories that kill civilians. Help us collect signatures, make the truth known, and gather a force large enough for the state to ignore it.",
+      "download": "To sign and distribute the petition, download and print the template below.",
+      "downloadButton": "Download the petition table",
+      "submission": "Send us your signatures by mail to:",
+      "address": "Post Office No. 15, Cluj-Napoca, PO Box 10",
+      "closing": "Each signature is a voice. If you collect ten, it means ten more voices. If ten people each collect ten signatures, we have a hundred. This is a first step to building the pressure that will lead to change."
+    },
+    "onlinePetition": {
+      "heading": "Sign the petition online",
+      "button": "Sign online"
+    }
+  },
+  "whoWeAre": {
+    "title": "WHO WE ARE",
+    "intro": "We are a network of people and organizations who believe that Romania should not be complicit in the genocide and occupation of the Palestinian people. We gather around a simple and powerful idea: solidarity.",
+    "coordinated": "The \"Elbit out!\" campaign is coordinated by Palestine Solidarity Cluj-Napoca (PS.CJ).",
+    "email": "Send us an email",
+    "localPartners": "Local partners",
+    "internationalPartners": "International partners"
+  }
+}

@@ -1,0 +1,46 @@
+/* Use this for <a> tags that need to look like the CTAButton component */
+
+.button-common {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-red);
+  color: white;
+  text-decoration: none;
+  font-family: 'Play', Arial, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(250, 29, 29, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid var(--color-red);
+  padding: 15px 30px;
+  font-size: 16px;
+  min-height: 60px;
+}
+
+.button-common:hover {
+  background: transparent;
+  color: var(--color-red);
+  border-color: var(--color-red);
+  box-shadow: 0 2px 8px rgba(250, 29, 29, 0.3);
+}
+
+.button-common:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(250, 29, 29, 0.3);
+}
+
+.button-common:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(250, 29, 29, 0.3);
+}
+
+@media (max-width: 768px) {
+  .button-common {
+    font-size: 14px;
+    min-height: 52px;
+    padding: 14px 26px;
+  }
+}
