@@ -96,4 +96,41 @@ export const newsService = {
   }
 }
 
+export const projectsPageService = {
+  /**
+   * Fetch the projects page singleton — holds page title, nav label, banner, and content.
+   * Directus collection: projects_page (singleton)
+   * @param {string} locale - Language code ('ro', 'en')
+   * @returns {Promise<{title: string|null, navLabel: string|null, banner: string|null, content: string|null}>}
+   */
+  async getPageMeta(locale = null) {
+    try {
+      const localeMap = { 'ro': 'ro-RO', 'en': 'en-US' }
+      const directusLocale = localeMap[locale] || 'ro-RO'
+
+      const response = await api.get('/projects_page', {
+        params: {
+          fields: 'banner,translations.title,translations.nav_label,translations.content,translations.languages_code'
+        }
+      })
+
+      const data = response.data.data
+      const translation = data?.translations?.find(
+        t => t.languages_code === directusLocale
+      ) || {}
+
+      return {
+        title: translation.title || null,
+        navLabel: translation.nav_label || null,
+        content: translation.content || null,
+        banner: data?.banner ? `${API_BASE_URL}/assets/${data.banner}` : null
+      }
+    } catch (error) {
+      // Non-critical — view falls back to i18n defaults
+      console.warn('[API] Failed to fetch projects page meta:', error.message)
+      return { title: null, navLabel: null, content: null, banner: null }
+    }
+  }
+}
+
 export default api

@@ -19,6 +19,7 @@
         <router-link to="/ce-vrem" class="nav-link" @click="handleNavClick">{{ $t('nav.whatWeWant') }}</router-link>
         <router-link to="/sustine-campania" class="nav-link" @click="handleNavClick">{{ $t('nav.support') }}</router-link>
         <router-link to="/cine-suntem" class="nav-link" @click="handleNavClick">{{ $t('nav.whoWeAre') }}</router-link>
+        <router-link to="/proiecte" class="nav-link" @click="handleNavClick">{{ projectsNavLabel }}</router-link>
         
         <div class="language-switcher">
           <button 
@@ -47,6 +48,7 @@
 <script>
 import { useI18n } from 'vue-i18n'
 import { forceScrollToTop } from '@/utils/scroll.js'
+import { projectsPageService } from '@/services/api.js'
 
 export default {
   name: 'NavigationBar',
@@ -58,12 +60,16 @@ export default {
     return {
       mobileMenuOpen: false,
       touchStartX: 0,
-      touchStartY: 0
+      touchStartY: 0,
+      cmsProjectsNavLabel: null
     }
   },
   computed: {
     currentLocale() {
       return this.locale
+    },
+    projectsNavLabel() {
+      return this.cmsProjectsNavLabel || this.$t('nav.projects')
     }
   },
   watch: {
@@ -74,9 +80,14 @@ export default {
     }
   },
   methods: {
+    async fetchProjectsNavLabel() {
+      const meta = await projectsPageService.getPageMeta(this.locale)
+      this.cmsProjectsNavLabel = meta.navLabel
+    },
     switchLanguage(lang) {
       this.locale = lang
       localStorage.setItem('elbit-out-locale', lang)
+      this.fetchProjectsNavLabel()
       if (this.mobileMenuOpen) {
         this.closeMobileMenu()
       }
@@ -144,6 +155,7 @@ export default {
   },
   mounted() {
     this.enableBodyScroll()
+    this.fetchProjectsNavLabel()
     
     // Close mobile menu on window resize — stored reference so we can clean up
     this.handleResize = () => {

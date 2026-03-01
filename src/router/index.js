@@ -33,6 +33,11 @@ const routes = [
     component: () => import('../views/CineSuntemView.vue')
   },
   {
+    path: '/proiecte',
+    name: 'proiecte',
+    component: () => import('../views/ProiecteView.vue')
+  },
+  {
     // Catch-all — unknown routes get redirected home, not left to rot on a blank page
     path: '/:pathMatch(.*)*',
     name: 'not-found',

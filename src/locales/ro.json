@@ -5,7 +5,8 @@
     "news": "ȘTIRI",
     "whatWeWant": "CE VREM?",
     "support": "SUSȚINE CAMPANIA",
-    "whoWeAre": "CINE SUNTEM"
+    "whoWeAre": "CINE SUNTEM",
+    "projects": "PROIECT ÎN CURS"
   },
   "home": {
     "learnMore": "Află mai multe",
@@ -84,6 +85,13 @@
       "heading": "Semnează petiția online",
       "button": "Semnează online"
     }
+  },
+  "projects": {
+    "title": "PROIECT ÎN CURS",
+    "loading": "Se încarcă proiectul...",
+    "errorTitle": "Proiect temporar indisponibil",
+    "errorMessage": "Proiectul nu este disponibil momentan. Vă rugăm să încercați mai târziu.",
+    "empty": "Nu există proiecte publicate momentan."
   },
   "whoWeAre": {
     "title": "CINE SUNTEM",

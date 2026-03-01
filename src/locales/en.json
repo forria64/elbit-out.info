@@ -5,7 +5,8 @@
     "news": "NEWS",
     "whatWeWant": "WHAT DO WE WANT?",
     "support": "SUPPORT THE CAMPAIGN",
-    "whoWeAre": "WHO WE ARE"
+    "whoWeAre": "WHO WE ARE",
+    "projects": "ONGOING PROJECT"
   },
   "home": {
     "learnMore": "Find out more",
@@ -84,6 +85,13 @@
       "heading": "Sign the petition online",
       "button": "Sign online"
     }
+  },
+  "projects": {
+    "title": "ONGOING PROJECT",
+    "loading": "Loading project...",
+    "errorTitle": "Project temporarily unavailable",
+    "errorMessage": "The project is currently unavailable. Please try again later.",
+    "empty": "No projects published at the moment."
   },
   "whoWeAre": {
     "title": "WHO WE ARE",
