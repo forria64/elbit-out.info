@@ -103,21 +103,21 @@ export default {
   display: flex;
   flex-direction: column;
   position: relative;
-  /* No padding-top — banners bleed to viewport top, behind the fixed nav */
+  /* Banners start flush against the viewport top, behind the fixed nav — no padding to interfere */
 }
 
 .banner-section {
   width: 100vw;
-  /* Negative-margin trick: breaks out of parent padding to span full viewport width */
+  /* Break out of parent padding to span full viewport width */
   margin-left: calc(50% - 50vw);
   background: #f8f8f8;
   position: relative;
 }
 
-/* Thick separator — visual anchor between banner and content */
+/* Visual anchor between banner and content — thick enough to register as intentional, not a rendering artifact */
 .banner-red-border {
   width: 100%;
-  height: 6px; /* Much thicker - 6px instead of 3px */
+  height: 6px;
   background: var(--color-red);
   position: absolute;
   bottom: 0;
@@ -158,7 +158,7 @@ export default {
 .banner-title {
   font-family: 'Play', Arial, sans-serif;
   font-weight: bold;
-  font-size: clamp(28px, 3.8vw, 48px); /* Responsive title size */
+  font-size: clamp(28px, 3.8vw, 48px);
   color: white;
   text-align: center;
   text-transform: uppercase;
@@ -170,7 +170,7 @@ export default {
 .body-section {
   flex: 1;
   width: 100%;
-  padding: 2vh 0; /* Reduced from 4.7vh - much tighter spacing */
+  padding: 2vh 0;
   background: white;
   position: relative;
 }
@@ -181,10 +181,9 @@ export default {
   padding: 0 7.8vw; /* ~100px responsive padding */
 }
 
-/* Text block - responsive equivalent to 1080px × 560px */
 .text-block {
   max-width: 84.4vw; /* ~1080px on 1280px screen */
-  min-height: 43.8vh; /* ~560px responsive */
+  min-height: 43.8vh; /* ~560px on 1280px screen */
   margin: 0 auto;
   padding: 3.1vh 3.1vw; /* ~40px responsive */
   background: white;
@@ -195,7 +194,7 @@ export default {
 .text-block p {
   font-family: 'Atkinson Hyperlegible', Arial, sans-serif;
   font-weight: normal;
-  font-size: clamp(11px, 0.9vw, 14px); /* Even smaller base text */
+  font-size: clamp(11px, 0.9vw, 14px);
   line-height: 1.5;
   color: var(--color-black);
   margin-bottom: 1.9vh; /* ~24px responsive */
@@ -205,7 +204,7 @@ export default {
 .text-block h2 {
   font-family: 'Play', Arial, sans-serif;
   font-weight: bold;
-  font-size: clamp(15px, 1.7vw, 22px); /* Even smaller base headings */
+  font-size: clamp(15px, 1.7vw, 22px);
   color: var(--color-black);
   margin-bottom: 1.6vh; /* ~20px responsive */
   margin-top: 3.1vh; /* ~40px responsive */
@@ -214,13 +213,12 @@ export default {
 .text-block h3 {
   font-family: 'Play', Arial, sans-serif;
   font-weight: bold;
-  font-size: clamp(13px, 1.2vw, 16px); /* Even smaller base subheadings */
+  font-size: clamp(13px, 1.2vw, 16px);
   color: var(--color-red);
   margin-bottom: 1.3vh; /* ~16px responsive */
   margin-top: 2.5vh; /* ~32px responsive */
 }
 
-/* CTA section styling */
 .cta-section {
   margin-top: 3.9vh; /* ~50px responsive */
   text-align: center;

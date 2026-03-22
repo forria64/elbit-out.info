@@ -54,7 +54,6 @@ export default {
 
   data() {
     return {
-      // Current slide from carousel
       currentSlide: {}
     }
   },
@@ -95,13 +94,13 @@ export default {
   flex-direction: column;
   align-items: center;
   background: white;
-  overflow: hidden; /* Homepage locked to viewport — no scrolling */
+  overflow: hidden; /* Viewport-locked — scrolling would expose emptiness below the fold */
 }
 
 .intro-section {
   width: 100vw;
   margin-left: calc(50% - 50vw);
-  /* Start from viewport top — no padding needed */
+  /* No padding — banner starts flush against the viewport top, behind the fixed nav */
   height: 50vh;
   padding: 0;
   background: #f8f8f8;
@@ -122,8 +121,8 @@ export default {
 .main-section {
   width: 100%;
   max-width: 84.4vw; /* ~1080px on 1280px screen */
-  min-height: 35vh; /* Reduced since video takes more space */
-  margin: 0.5vh auto; /* Much tighter - reduced from 2vh */
+  min-height: 35vh; /* Video claims 50vh — content section gets the remainder */
+  margin: 0.5vh auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,14 +131,13 @@ export default {
 .main-container {
   width: 100%;
   height: 100%;
-  padding: 2vh 3.9vw; /* Reduced vertical padding from 5.5vh */
+  padding: 2vh 3.9vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-/* Text content wrapper — clean panel with subtle border */
 .text-content-wrapper {
   width: 100%;
   max-width: 50vw;
@@ -151,10 +149,9 @@ export default {
   overflow: hidden;
 }
 
-/* Text content block - slides in/out */
 .text-content {
   width: 100%;
-  min-height: 150px; /* Minimum for readability */
+  min-height: 150px; /* Floor so short slides don't collapse the layout */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -164,20 +161,19 @@ export default {
 .main-title {
   font-family: 'Play', Arial, sans-serif;
   font-weight: bold;
-  font-size: clamp(18px, 2vw, 26px); /* Smaller default title */
+  font-size: clamp(18px, 2vw, 26px);
   color: var(--color-black);
   text-align: center;
   margin-bottom: 2.3vh; /* ~30px responsive */
 }
 
 .lead-paragraph {
-  font-size: clamp(14px, 1.4vw, 18px) !important; /* Smaller default lead text */
+  font-size: clamp(14px, 1.4vw, 18px) !important;
   font-weight: bold;
   color: var(--color-red);
   margin-bottom: 2.3vh; /* ~30px responsive */
 }
 
-/* Paragraph spacing */
 .content-paragraphs {
   display: flex;
   flex-direction: column;
@@ -187,15 +183,15 @@ export default {
 .content-paragraphs p {
   font-family: 'Atkinson Hyperlegible', Arial, sans-serif;
   font-weight: normal;
-  font-size: clamp(13px, 1.2vw, 14px); /* Smaller default text */
+  font-size: clamp(13px, 1.2vw, 14px);
   line-height: 1.6;
   color: var(--color-black);
   text-align: justify;
   margin: 0;
-  white-space: pre-line; /* Preserve whitespace and line breaks for bullet points */
+  white-space: pre-line; /* CMS content uses literal newlines for bullet formatting */
 }
 
-/* Hanging indent — bullet char pokes left while wrapped text stays aligned */
+/* Hanging indent — bullet character sits outside the text block so wrapped lines stay flush */
 .content-paragraphs p.bullet-point {
   padding-left: 2em;
   text-indent: -0.5em;
@@ -236,7 +232,7 @@ export default {
   opacity: 1;
 }
 
-/* Clip overflow during slide transitions */
+/* Clipping boundary for the slide-in/out transitions */
 .main-container {
   position: relative;
   overflow: hidden;
@@ -245,21 +241,21 @@ export default {
 @media (max-width: 1200px) {
 
   .intro-section {
-    height: 50vh; /* Keep 50% height on all screen sizes */
+    height: 50vh;
   }
   
   .main-section {
     max-width: 95%;
     min-height: 30vh;
-    margin: 0.3vh auto; /* Even tighter on tablet */
+    margin: 0.3vh auto;
   }
   
   .main-container {
-    padding: 1.5vh 1.8vw; /* Reduced padding */
+    padding: 1.5vh 1.8vw;
   }
   
   .text-content-wrapper {
-    max-width: 85vw; /* Wider on tablets */
+    max-width: 85vw;
     padding: 1.5rem 1.5rem 0 1.5rem;
   }
   
@@ -272,33 +268,33 @@ export default {
 
 @media (max-width: 768px) {
   .intro-section {
-    height: 50vh; /* Maintain 50% height on mobile */
+    height: 50vh;
   }
   
   .main-container {
-    padding: 2vh 5vw; /* Softer mobile gutters */
-    margin-top: 1vh; /* Less top margin - content higher */
+    padding: 2vh 5vw;
+    margin-top: 1vh;
   }
   
   .content-paragraphs p {
     text-align: left;
-    font-size: clamp(12px, 1.1vw, 15px); /* Smaller paragraph text on tablet */
-    line-height: 1.5; /* Tighter line height */
+    font-size: clamp(12px, 1.1vw, 15px);
+    line-height: 1.5;
   }
   
   .content-paragraphs {
-    gap: 1.5vh; /* More space between paragraphs */
+    gap: 1.5vh;
   }
 }
 
 @media (max-width: 480px) {
   .intro-section {
-    height: 50vh; /* Keep consistent 50% even on small screens */
+    height: 50vh;
   }
   
   .main-container {
-    padding: 2.5vh 6vw; /* Softer mobile gutters */
-    margin-top: 1.5vh; /* Consistent top margin */
+    padding: 2.5vh 6vw;
+    margin-top: 1.5vh;
   }
   
   .text-content-wrapper {
@@ -311,12 +307,12 @@ export default {
   }
   
   .content-paragraphs {
-    gap: 1.8vh; /* More gap between paragraphs on mobile */
+    gap: 1.8vh;
   }
   
   .content-paragraphs p {
-    font-size: clamp(11px, 1vw, 15px); /* Consistent smaller text on mobile */
-    line-height: 1.4; /* Tighter line height for small screens */
+    font-size: clamp(11px, 1vw, 15px);
+    line-height: 1.4;
   }
 }
 

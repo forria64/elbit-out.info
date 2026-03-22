@@ -1,4 +1,8 @@
 {
+  "common": {
+    "errorTitle": "Content temporarily unavailable",
+    "errorMessage": "We couldn't load the content. Please try again later."
+  },
   "nav": {
     "home": "HOME",
     "whyElbit": "WHY ELBIT?",
@@ -41,8 +45,6 @@
   "news": {
     "title": "NEWS",
     "loading": "Loading news...",
-    "errorTitle": "News temporarily unavailable",
-    "errorMessage": "The news system is currently unavailable. Please try again later.",
     "empty": "No news published at the moment.",
     "readMore": "Read more",
     "readLess": "Read less"
@@ -89,8 +91,6 @@
   "projects": {
     "title": "ONGOING PROJECT",
     "loading": "Loading project...",
-    "errorTitle": "Project temporarily unavailable",
-    "errorMessage": "The project is currently unavailable. Please try again later.",
     "empty": "No projects published at the moment."
   },
   "whoWeAre": {
@@ -99,6 +99,7 @@
     "coordinated": "The \"Elbit out!\" campaign is coordinated by Palestine Solidarity Cluj-Napoca (PS.CJ).",
     "email": "Send us an email",
     "localPartners": "Local partners",
-    "internationalPartners": "International partners"
+    "internationalPartners": "International partners",
+    "loading": "Loading partners..."
   }
 }

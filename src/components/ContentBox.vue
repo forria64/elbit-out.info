@@ -118,7 +118,7 @@ export default {
   margin-top: 3em;
 }
 
-/* First child inside demands-box shouldn't carry its own top margin */
+/* Nested content-box inherits parent margin — zero it so the first child sits flush */
 .content-box--demands-box > .content-box:first-child {
   margin-top: 0;
 }

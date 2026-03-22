@@ -135,13 +135,12 @@ export default {
       const deltaX = touchEndX - this.touchStartX
       const deltaY = touchEndY - this.touchStartY
 
-      // Only trigger if horizontal swipe is dominant (not vertical scroll)
+      // Ignore vertical scrolls — only respond to deliberate horizontal swipes
       if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 40) {
         if (deltaX > 0 && this.mobileMenuOpen) {
-          // Swipe right while menu is open — dismiss it
           this.closeMobileMenu()
         } else if (deltaX < 0 && !this.mobileMenuOpen && window.innerWidth <= 768) {
-          // Swipe left from right edge — 50px zone so thumbs actually hit it
+          // 50px right-edge zone — narrow enough to avoid false triggers, wide enough for a thumb
           const rightEdgeZone = window.innerWidth - 50
           if (this.touchStartX > rightEdgeZone) {
             this.openMobileMenu()
@@ -157,7 +156,7 @@ export default {
     this.enableBodyScroll()
     this.fetchProjectsNavLabel()
     
-    // Close mobile menu on window resize — stored reference so we can clean up
+    // Stored as instance reference so beforeUnmount can remove the exact same function
     this.handleResize = () => {
       if (window.innerWidth > 768) {
         this.mobileMenuOpen = false
@@ -170,7 +169,7 @@ export default {
     document.addEventListener('touchend', this.handleTouchEnd, { passive: true })
   },
   beforeUnmount() {
-    // Clean up all event listeners — leave no trace
+    // Tear down every listener — orphaned handlers on unmounted components are memory leaks waiting to happen
     window.removeEventListener('resize', this.handleResize)
     document.removeEventListener('touchstart', this.handleTouchStart)
     document.removeEventListener('touchend', this.handleTouchEnd)
@@ -185,10 +184,10 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10000; /* Must sit above video banner (z:4) and mobile menu overlay (z:9999) */
+  z-index: 10000; /* Above video banner (z:4) and the mobile menu overlay (z:9999) */
   border-bottom: 1px solid #eee;
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); /* Safari support */
+  -webkit-backdrop-filter: blur(8px); /* Safari still needs the prefix */
   transition: all 0.3s ease;
 }
 
@@ -204,7 +203,7 @@ export default {
 
 .nav-logo {
   position: relative;
-  z-index: 10002; /* Above mobile menu overlay */
+  z-index: 10002; /* Above the mobile menu overlay so the logo stays tappable */
   margin-top: 0.3vh;
 }
 
@@ -242,7 +241,7 @@ export default {
 }
 
 .mobile-menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(1.5px, 8px); /* Offset corrects right skew from transform origin */
+  transform: rotate(45deg) translate(1.5px, 8px); /* Pixel offsets compensate for transform-origin skew */
 }
 
 .mobile-menu-toggle.active span:nth-child(2) {
@@ -250,7 +249,7 @@ export default {
 }
 
 .mobile-menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(-0.5px, -6px); /* Offset corrects right skew from transform origin */
+  transform: rotate(-45deg) translate(-0.5px, -6px); /* Same correction, opposite rotation */
 }
 
 .nav-link {
@@ -260,11 +259,11 @@ export default {
   text-transform: uppercase;
   color: var(--color-black);
   text-decoration: none;
-  padding: 0.5vh 0; /* Tight padding keeps underline visually close to text */
+  padding: 0.5vh 0; /* Tight so the border-bottom underline stays visually attached to the text */
   border-bottom: 3px solid transparent;
   transition: all 0.3s ease;
   white-space: nowrap;
-  line-height: 1.2; /* Tighter line height keeps underline close */
+  line-height: 1.2; /* Prevents the underline from drifting away from the baseline */
 }
 
 .nav-link:hover {
@@ -330,7 +329,7 @@ export default {
 @media (min-width: 769px) {
   .nav-container {
     height: 3.5vh;
-    min-height: 45px; /* Floor for usability — touch targets below this become hostile */
+    min-height: 45px; /* Below this, touch targets become too small for human fingers */
   }
   
   .nav-logo img {
@@ -339,7 +338,7 @@ export default {
   }
   
   .navigation-bar {
-    /* will-change: transform prevents paint jank when banner video plays behind the nav */
+    /* will-change: transform isolates the paint layer — stops the banner video from triggering repaints here */
     will-change: transform;
   }
 }
@@ -361,9 +360,9 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 20px; /* Slightly oversized for a cleaner X transform */
+    width: 20px; /* Slightly oversized so the X animation has room to breathe */
     height: 16px;
-    z-index: 10001; /* Higher than mobile menu to always be clickable */
+    z-index: 10001; /* Must stay above the mobile overlay to remain tappable */
     margin-top: 0.4vh;
   }
   
@@ -382,7 +381,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3vh; /* Reduced gap between links */
+    gap: 3vh;
     transform: translateX(100%);
     transition: transform 0.3s ease;
     z-index: 9999;

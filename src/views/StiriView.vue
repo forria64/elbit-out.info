@@ -14,11 +14,7 @@
         </div>
 
         <div v-else-if="error" class="stiri-content">
-          <ContentBox variant="warning" class="error-box">
-            <h2 class="error-title">{{ $t('news.errorTitle') }}</h2>
-            <p class="error-message">{{ $t('news.errorMessage') }}</p>
-            <p class="error-details">{{ error }}</p>
-          </ContentBox>
+          <DirectusError />
         </div>
 
         <div v-else class="stiri-content">
@@ -72,6 +68,7 @@
 <script>
 import ContentPage from '@/components/ContentPage.vue'
 import ContentBox from '@/components/ContentBox.vue'
+import DirectusError from '@/components/DirectusError.vue'
 import { newsService } from '@/services/api.js'
 import DOMPurify from 'dompurify'
 
@@ -79,7 +76,8 @@ export default {
   name: 'StiriView',
   components: {
     ContentPage,
-    ContentBox
+    ContentBox,
+    DirectusError
   },
   data() {
     return {
@@ -122,14 +120,14 @@ export default {
       }
     },
     formatDate(dateString) {
-      // Strip time portion if Directus sends full ISO timestamps (2026-02-03T09:48:53)
+      // Directus timestamps include T09:48:53 noise — split it off so dates stay human-readable
       const dateOnly = dateString.split('T')[0]
       const [year, month, day] = dateOnly.split('-')
       return `${day}.${month}.${year}`
     },
     formatContent(content) {
       if (!content) return ''
-      // Sanitize CMS output — Directus is first-party but v-html is still an XSS surface
+      // Directus is first-party, but v-html is still an XSS surface — sanitize everything that touches innerHTML
       const raw = content
         .split('\n\n')
         .map(para => `<p>${para.replace(/\n/g, '<br>')}</p>`)
@@ -137,7 +135,6 @@ export default {
       return DOMPurify.sanitize(raw, { USE_PROFILES: { html: true } })
     },
     toggleExpand(article) {
-      // Accordion behavior — only one article open at a time
       const wasExpanded = article.expanded
       const targetId = article.id
       
@@ -148,8 +145,8 @@ export default {
       if (!wasExpanded) {
         article.expanded = true
         
-        // $nextTick waits for Vue's DOM patch. Grid reflow is now instant (no transition
-        // on layout props), so coordinates are accurate. scroll-margin-top handles nav offset.
+        // DOM patch is async — wait for Vue to finish before measuring coordinates.
+        // Grid reflow has no transition, so scroll targets are immediately accurate.
         this.$nextTick(() => {
           const el = document.querySelector(`[data-article-id="${targetId}"]`)
           if (!el) return
@@ -177,7 +174,6 @@ export default {
   gap: 2.5em;
 }
 
-/* Desktop: 2 wider columns */
 @media (min-width: 900px) {
   .stiri-content {
     grid-template-columns: repeat(2, 1fr);
@@ -189,12 +185,12 @@ export default {
   background: transparent;
   border: 2px solid var(--color-black);
   overflow: hidden;
-  /* Only animate visual effects — grid reflow must be instant or scroll coords are stale */
+  /* Animate only visual polish — grid reflow must be instantaneous or scrollIntoView lands on stale coordinates */
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
-  /* Nav clearance for scrollIntoView — matches navbar height at each breakpoint */
+  /* Offset for scrollIntoView — account for the fixed navbar at each breakpoint */
   scroll-margin-top: 5vh;
 }
 
@@ -206,11 +202,10 @@ export default {
 
 @media (max-width: 768px) {
   .news-article {
-    scroll-margin-top: 50px; /* Matches min-height: 45px + breathing room */
+    scroll-margin-top: 50px; /* nav min-height (45px) plus breathing room */
   }
 }
 
-/* Span full grid row when expanded */
 .news-article.is-expanded {
   grid-column: 1 / -1;
   transform: scale(1.01);
@@ -229,16 +224,15 @@ export default {
   position: relative;
   width: 100%;
   height: 0;
-  /* 16:9 aspect ratio via padding hack */
+  /* padding-bottom trick — intrinsic 16:9 ratio without knowing the actual image dimensions */
   padding-bottom: 56.25%;
   overflow: hidden;
   background: var(--color-black);
   transition: padding-bottom 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Crop image height when card is expanded */
 .news-article.is-expanded .article-image-wrapper {
-  padding-bottom: 30%; /* Reduced height */
+  padding-bottom: 30%;
 }
 
 .article-image {
@@ -310,7 +304,7 @@ export default {
   margin-bottom: 0;
 }
 
-/* Sticky to card bottom via flex margin-top:auto */
+/* margin-top:auto pins this to the card bottom via flexbox — consistent alignment regardless of content length */
 .read-more-btn {
   margin-top: auto;
   margin-left: auto;
@@ -359,33 +353,7 @@ export default {
   font-style: italic;
 }
 
-.error-box {
-  text-align: center;
-  padding: 3em 2em;
-}
 
-.error-title {
-  font-family: 'Play', Arial, sans-serif;
-  font-weight: bold;
-  font-size: clamp(20px, 2.5vw, 24px);
-  color: var(--color-red);
-  margin-bottom: 1em;
-}
-
-.error-message {
-  font-family: 'Atkinson Hyperlegible', Arial, sans-serif;
-  font-size: clamp(15px, 1.3vw, 17px);
-  color: var(--color-black);
-  margin-bottom: 1em;
-  line-height: 1.6;
-}
-
-.error-details {
-  font-family: 'Atkinson Hyperlegible', Arial, sans-serif;
-  font-size: clamp(12px, 1vw, 14px);
-  color: var(--color-gray);
-  font-style: italic;
-}
 
 .empty-box {
   text-align: center;
@@ -411,9 +379,8 @@ export default {
 
 }
 
-/* Loading/Error/Empty boxes should span full width in grid */
+/* Full-width grid span so these never sit beside article cards */
 .loading-box,
-.error-box,
 .empty-box {
   grid-column: 1 / -1;
 }

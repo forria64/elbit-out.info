@@ -1,4 +1,8 @@
 {
+  "common": {
+    "errorTitle": "Conținut temporar indisponibil",
+    "errorMessage": "Nu am putut încărca conținutul. Vă rugăm încercați mai târziu."
+  },
   "nav": {
     "home": "ACASĂ",
     "whyElbit": "DE CE ELBIT?",
@@ -41,8 +45,6 @@
   "news": {
     "title": "ȘTIRI",
     "loading": "Se încarcă știrile...",
-    "errorTitle": "Știrile temporar indisponibile",
-    "errorMessage": "Sistemul de știri nu este disponibil momentan. Vă rugăm să încercați mai târziu.",
     "empty": "Nu există știri publicate momentan.",
     "readMore": "Citește mai mult",
     "readLess": "Citește mai puțin"
@@ -89,8 +91,6 @@
   "projects": {
     "title": "PROIECT ÎN CURS",
     "loading": "Se încarcă proiectul...",
-    "errorTitle": "Proiect temporar indisponibil",
-    "errorMessage": "Proiectul nu este disponibil momentan. Vă rugăm să încercați mai târziu.",
     "empty": "Nu există proiecte publicate momentan."
   },
   "whoWeAre": {
@@ -99,6 +99,7 @@
     "coordinated": "Campania \"Elbit out!\" este coordonată de către Palestine Solidarity Cluj-Napoca (PS.CJ).",
     "email": "Trimite-ne un mail",
     "localPartners": "Parteneri locali",
-    "internationalPartners": "Parteneri internaționali"
+    "internationalPartners": "Parteneri internaționali",
+    "loading": "Se încarcă partenerii..."
   }
 }

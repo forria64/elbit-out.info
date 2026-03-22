@@ -10,12 +10,12 @@ const getStartingLocale = () => {
 }
 
 /**
- * Detect locale by IP geolocation — Romania gets Romanian,
- * the rest of the planet gets English. Skips detection entirely
- * if the user already made an explicit language choice via the navbar.
+ * Sniff the user's country by IP and assign a language — Romania gets Romanian,
+ * everywhere else gets English. Backs off immediately if the user already
+ * made a conscious choice via the navbar toggle.
  *
- * Uses ipapi.co/country_code/ — returns a two-letter ISO code as plain text.
- * 3-second timeout so a slow CDN doesn't hold up the experience.
+ * ipapi.co/country_code/ returns a two-letter ISO code as plain text.
+ * 3-second timeout so a sluggish CDN doesn't hold the entire experience hostage.
  *
  * @param {import('vue-i18n').I18n} i18nInstance
  */
@@ -32,7 +32,6 @@ export async function detectLocaleByIP(i18nInstance) {
     const countryCode = (await response.text()).trim().toUpperCase()
     const detectedLocale = countryCode === 'RO' ? 'ro' : 'en'
 
-    // Only update if detection produced a different locale
     if (i18nInstance.global.locale.value !== detectedLocale) {
       i18nInstance.global.locale.value = detectedLocale
     }

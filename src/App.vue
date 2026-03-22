@@ -47,7 +47,7 @@ export default {
     }
   },
   watch: {
-    // Lock body scroll on homepage, free it everywhere else
+    // Homepage is a single-viewport experience — scrolling would break the choreography
     isHomePage: {
       immediate: true,
       handler(locked) {
@@ -75,7 +75,7 @@ export default {
 </script>
 
 <style>
-/* Custom typefaces — Play for headlines, Atkinson for body. Swap display prevents FOIT. */
+/* Typeface declarations — swap display so text renders immediately with a fallback, not a blank stare */
 @font-face {
   font-family: 'Play';
   src: url('./assets/fonts/Play-Regular.ttf') format('truetype');
@@ -119,7 +119,7 @@ html {
   scrollbar-color: var(--color-red) transparent;
 }
 
-/* Webkit needs its own API — standard scrollbar-* doesn't cut it yet */
+/* Webkit still ignores the standard scrollbar-* properties — vendor prefix until they catch up */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -138,7 +138,7 @@ html {
   background: #d91919;
 }
 
-/* Tighter scrollbar on mobile — less real estate burned on small glass */
+/* Less scrollbar on mobile — every pixel of horizontal real estate matters on small glass */
 @media (max-width: 768px) {
   ::-webkit-scrollbar {
     width: 4px;
@@ -181,7 +181,7 @@ html, body {
   flex-direction: column;
 }
 
-/* Brand stripe — the red vertical line that anchors every page visually */
+/* Fixed position so it lives outside layout flow — persistent brand accent without shifting content */
 .red-margin-left {
   position: fixed;
   left: 1.5vw; /* ~20px on 1280px screen */
@@ -217,7 +217,7 @@ a:hover {
   color: var(--color-red);
 }
 
-/* Touch devices get no hover effects — sticky :hover on tap is hostile UX */
+/* Touch devices get no hover effects — sticky :hover state on tap is actively hostile to thumbs */
 @media (hover: none) and (pointer: coarse) {
   *:hover {
     transform: none !important;
@@ -266,7 +266,6 @@ a:hover {
   }
 }
 
-/* ── Footer branding ── */
 .site-footer {
   display: flex;
   align-items: center;
@@ -300,7 +299,7 @@ a:hover {
   border-radius: 20px;
   padding: 4px 8px;
   transition: border-color 0.3s ease, gap 0.3s ease;
-  /* Clip the name while it's hidden */
+  /* Slide-reveal animation needs a clipping boundary or the name bleeds out mid-transition */
   overflow: hidden;
 }
 
@@ -317,7 +316,7 @@ a:hover {
   font-size: clamp(12px, 1vw, 14px);
   color: var(--color-red);
   white-space: nowrap;
-  /* Collapsed by default — slides open on hover */
+  /* Zero max-width by default — the hover transition animates this open */
   max-width: 0;
   opacity: 0;
   overflow: hidden;
@@ -325,7 +324,6 @@ a:hover {
               opacity 0.3s ease 0.05s;
 }
 
-/* Hover state — name slides out, border appears */
 .footer-brand-link:hover .footer-brand-inner {
   border-color: var(--color-red);
   gap: 0.5em;

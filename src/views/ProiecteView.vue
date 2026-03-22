@@ -14,14 +14,16 @@
         </div>
 
         <div v-else-if="error" class="proiecte-content">
-          <ContentBox variant="warning" class="error-box">
-            <h2 class="error-title">{{ $t('projects.errorTitle') }}</h2>
-            <p class="error-message">{{ $t('projects.errorMessage') }}</p>
-          </ContentBox>
+          <DirectusError />
         </div>
 
         <div v-else-if="pageContent" class="proiecte-content">
-          <div class="page-body" v-html="formatContent(pageContent)"></div>
+          <div class="project-layout">
+            <div v-if="pageImage" class="project-image">
+              <img :src="pageImage" :alt="pageTitle" />
+            </div>
+            <div class="page-body" v-html="formatContent(pageContent)"></div>
+          </div>
         </div>
 
         <div v-else class="proiecte-content">
@@ -37,6 +39,7 @@
 <script>
 import ContentPage from '@/components/ContentPage.vue'
 import ContentBox from '@/components/ContentBox.vue'
+import DirectusError from '@/components/DirectusError.vue'
 import { projectsPageService } from '@/services/api.js'
 import DOMPurify from 'dompurify'
 
@@ -44,13 +47,15 @@ export default {
   name: 'ProiecteView',
   components: {
     ContentPage,
-    ContentBox
+    ContentBox,
+    DirectusError
   },
   data() {
     return {
       bannerUrl: null,
       cmsTitle: null,
       pageContent: null,
+      pageImage: null,
       loading: true,
       error: null
     }
@@ -81,6 +86,7 @@ export default {
         const meta = await projectsPageService.getPageMeta(this.$i18n.locale)
         this.cmsTitle = meta.title
         this.pageContent = meta.content
+        this.pageImage = meta.image
         if (meta.banner) {
           this.bannerUrl = meta.banner
         }
@@ -115,6 +121,23 @@ export default {
   padding: 40px 20px;
 }
 
+.project-layout {
+  display: block;
+}
+
+.project-image {
+  float: right;
+  width: 50%;
+  margin: 0 0 1.5em 2em;
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 2px solid var(--color-black);
+}
+
 .page-body {
   font-family: 'Atkinson Hyperlegible', Arial, sans-serif;
   font-size: clamp(15px, 1.3vw, 17px);
@@ -143,27 +166,6 @@ export default {
   font-style: italic;
 }
 
-.error-box {
-  text-align: center;
-  padding: 3em 2em;
-}
-
-.error-title {
-  font-family: 'Play', Arial, sans-serif;
-  font-weight: bold;
-  font-size: clamp(20px, 2.5vw, 24px);
-  color: var(--color-red);
-  margin-bottom: 1em;
-}
-
-.error-message {
-  font-family: 'Atkinson Hyperlegible', Arial, sans-serif;
-  font-size: clamp(15px, 1.3vw, 17px);
-  color: var(--color-black);
-  margin-bottom: 1em;
-  line-height: 1.6;
-}
-
 .empty-box {
   text-align: center;
   padding: 3em 2em;
@@ -179,6 +181,12 @@ export default {
 @media (max-width: 768px) {
   .proiecte-content {
     padding: 30px 10px;
+  }
+
+  .project-image {
+    float: none;
+    width: 100%;
+    margin: 0 0 1.5em 0;
   }
 }
 </style>

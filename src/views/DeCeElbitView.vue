@@ -8,6 +8,16 @@
     >
       <template #content>
         <div class="elbit-content">
+          <div class="video-embed">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/uf69ysi8Fnk"
+              title="Why Elbit?"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+
           <ContentBox variant="lead">
             {{ $t('whyElbit.intro') }}
           </ContentBox>
@@ -82,6 +92,24 @@ export default {
 .download-report {
   margin-top: 2em;
   width: 100%;
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  margin-bottom: 2em;
+  border: 2px solid var(--color-black);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .elbit-content p {

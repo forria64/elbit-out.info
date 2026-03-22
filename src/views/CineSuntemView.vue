@@ -16,42 +16,56 @@
             </p>
           </ContentBox>
 
-          <section class="partners-section">
-            <h2>{{ $t('whoWeAre.localPartners') }}</h2>
-            <div class="partners-grid">
-              <a
-                v-for="(partner, index) in localPartners"
-                :key="index"
-                :href="decodeUrl(partner.url)"
-                :target="partner.url ? '_blank' : undefined"
-                :rel="partner.url ? 'noopener noreferrer' : undefined"
-                class="partner-item"
-                :class="{ 'no-link': !partner.url }"
-              >
-                <div v-if="partner.logo" class="partner-logo">
-                  <img :src="getLogoPath(partner.logo)" :alt="getPartnerName(partner)" />
-                </div>
-                <div class="partner-name">{{ getPartnerName(partner) }}</div>
-              </a>
-            </div>
+          <div v-if="loading" class="partners-loading">
+            <ContentBox variant="lead" class="loading-box">
+              <p class="loading-text">{{ $t('whoWeAre.loading') }}</p>
+            </ContentBox>
+          </div>
 
-            <h2>{{ $t('whoWeAre.internationalPartners') }}</h2>
-            <div class="partners-grid">
-              <a
-                v-for="(partner, index) in internationalPartners"
-                :key="index"
-                :href="decodeUrl(partner.url)"
-                :target="partner.url ? '_blank' : undefined"
-                :rel="partner.url ? 'noopener noreferrer' : undefined"
-                class="partner-item"
-                :class="{ 'no-link': !partner.url }"
-              >
-                <div v-if="partner.logo" class="partner-logo">
-                  <img :src="getLogoPath(partner.logo)" :alt="getPartnerName(partner)" />
-                </div>
-                <div class="partner-name">{{ getPartnerName(partner) }}</div>
-              </a>
-            </div>
+          <div v-else-if="error" class="partners-error">
+            <DirectusError />
+          </div>
+
+          <section v-else class="partners-section">
+            <template v-if="localPartners.length">
+              <h2>{{ $t('whoWeAre.localPartners') }}</h2>
+              <div class="partners-grid">
+                <a
+                  v-for="(partner, index) in localPartners"
+                  :key="index"
+                  :href="partner.url"
+                  :target="partner.url ? '_blank' : undefined"
+                  :rel="partner.url ? 'noopener noreferrer' : undefined"
+                  class="partner-item"
+                  :class="{ 'no-link': !partner.url }"
+                >
+                  <div v-if="partner.logo" class="partner-logo">
+                    <img :src="getLogoPath(partner.logo)" :alt="getPartnerName(partner)" />
+                  </div>
+                  <div class="partner-name">{{ getPartnerName(partner) }}</div>
+                </a>
+              </div>
+            </template>
+
+            <template v-if="internationalPartners.length">
+              <h2>{{ $t('whoWeAre.internationalPartners') }}</h2>
+              <div class="partners-grid">
+                <a
+                  v-for="(partner, index) in internationalPartners"
+                  :key="index"
+                  :href="partner.url"
+                  :target="partner.url ? '_blank' : undefined"
+                  :rel="partner.url ? 'noopener noreferrer' : undefined"
+                  class="partner-item"
+                  :class="{ 'no-link': !partner.url }"
+                >
+                  <div v-if="partner.logo" class="partner-logo">
+                    <img :src="getLogoPath(partner.logo)" :alt="getPartnerName(partner)" />
+                  </div>
+                  <div class="partner-name">{{ getPartnerName(partner) }}</div>
+                </a>
+              </div>
+            </template>
           </section>
         </div>
       </template>
@@ -62,20 +76,24 @@
 <script>
 import ContentPage from '@/components/ContentPage.vue'
 import ContentBox from '@/components/ContentBox.vue'
-import partnersData from '@/data/partners.json'
+import DirectusError from '@/components/DirectusError.vue'
+import { partnersService } from '@/services/api.js'
 import { decodeContactEmail } from '@/utils/email.js'
 
 export default {
   name: 'CineSuntemView',
   components: {
     ContentPage,
-    ContentBox
+    ContentBox,
+    DirectusError
   },
   data() {
     return {
       emailHref: '',
-      localPartners: partnersData.localPartners,
-      internationalPartners: partnersData.internationalPartners
+      localPartners: [],
+      internationalPartners: [],
+      loading: true,
+      error: null
     }
   },
   computed: {
@@ -83,36 +101,39 @@ export default {
       return new URL('../assets/banners/banner_cine_suntem.webp', import.meta.url).href
     }
   },
-  mounted() {
+  async mounted() {
     // Decode email on client side — bot-proof delivery
     const { href } = decodeContactEmail()
     this.emailHref = href
+
+    await this.fetchPartners()
+  },
+  watch: {
+    '$i18n.locale'() {
+      this.fetchPartners()
+    }
   },
   methods: {
-    decodeUrl(encodedUrl) {
-      if (!encodedUrl) return null
+    async fetchPartners() {
+      this.loading = true
+      this.error = null
+
       try {
-        return atob(encodedUrl)
-      } catch (e) {
-        console.error('Failed to decode URL:', e)
-        return null
+        const result = await partnersService.getAll(this.$i18n.locale)
+        this.localPartners = result.localPartners
+        this.internationalPartners = result.internationalPartners
+      } catch (err) {
+        console.error('Failed to fetch partners from CMS:', err)
+        this.error = err.response?.statusText || err.message || 'Eroare de conexiune'
+      } finally {
+        this.loading = false
       }
     },
     getPartnerName(partner) {
-      // Serve the right name for the right locale — no one reads Romanian abroad
-      if (this.$i18n.locale === 'en' && partner.nameEn) {
-        return partner.nameEn
-      }
       return partner.name
     },
-    getLogoPath(logoFilename) {
-      if (!logoFilename) return null
-      try {
-        return new URL(`../assets/partners/${logoFilename}`, import.meta.url).href
-      } catch (e) {
-        console.error('Failed to load logo:', logoFilename, e)
-        return null
-      }
+    getLogoPath(logo) {
+      return logo || null
     }
   }
 }
@@ -270,4 +291,17 @@ export default {
   width: 100%;
   text-align: center;
 }
+
+.loading-box {
+  text-align: center;
+  padding: 3em 2em;
+}
+
+.loading-text {
+  font-family: 'Atkinson Hyperlegible', Arial, sans-serif;
+  font-size: clamp(16px, 1.5vw, 18px);
+  color: var(--color-black);
+  font-style: italic;
+}
+
 </style>

@@ -89,7 +89,6 @@ export default {
   box-shadow: 0 0 0 3px rgba(250, 29, 29, 0.3);
 }
 
-/* Size variants — graduated escalation of visual presence */
 .cta-button--small {
   padding: 8px 16px;
   font-size: 13px;
@@ -187,7 +186,7 @@ export default {
 }
 </style>
 
-<!-- Global styles for <a> tags that need to look like CTAButton -->
+<!-- Un-scoped so <a> elements outside this component can inherit the same button styling -->
 <style>
 .button-common {
   display: inline-flex;

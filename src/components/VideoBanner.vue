@@ -16,7 +16,7 @@
         webkit-playsinline
         x5-playsinline
       >
-        <!-- Accessibility track — satisfies audits for non-silent video -->
+        <!-- Chromium accessibility audits flag <video> without a <track> — this satisfies the check -->
         <track kind="descriptions" label="Video description" />
       </video>
       
@@ -68,7 +68,7 @@ export default {
         }
       ]
     },
-    // Vite resolves asset imports via new URL() at build time
+    // Vite's new URL() import resolves to the hashed asset path at build time
     videoSrc() {
       return new URL('../assets/video_banner.mp4', import.meta.url).href
     },
@@ -93,7 +93,7 @@ export default {
       this.slideInterval = setInterval(() => {
         this.currentSlide = (this.currentSlide + 1) % this.slides.length
         this.$emit('slide-change', this.slides[this.currentSlide])
-      }, 10000) // 10s gives readers time to absorb each slide
+      }, 10000) // 10s per slide — enough time for a reader to actually absorb the content
     },
     
     stopSlideRotation() {
@@ -103,7 +103,7 @@ export default {
       }
     },
 
-    // Ensure video autoplay — fall back to user-interaction trigger if browser blocks it
+    // Browsers increasingly block autoplay — attempt programmatic play and wire up a gesture fallback if it refuses
     ensureVideoAutoplay() {
       this.$nextTick(() => {
         const video = this.$refs.backgroundVideo
@@ -111,18 +111,18 @@ export default {
         const playPromise = video.play()
         if (playPromise !== undefined) {
           playPromise.catch(() => {
-            // Autoplay blocked — wire up a real user gesture fallback
+            // Programmatic play rejected — need a real user gesture to unblock
             this.setupVideoClickHandler(video)
           })
         }
       })
     },
 
-    // Last resort: play video on first genuine user interaction
+    // If autoplay was blocked, the next real user interaction becomes our last shot
     setupVideoClickHandler(video) {
       const playOnClick = () => {
         video.play().catch(() => {
-          // Browser wins this round — all options exhausted
+          // Browser refused every attempt — the video stays a still frame and we move on
         })
       }
       document.addEventListener('click', playOnClick, { once: true })
@@ -149,7 +149,6 @@ export default {
   position: relative;
 }
 
-/* Background video styling - fill the container perfectly */
 .background-video {
   width: 100%;
   height: 100%;
@@ -160,7 +159,7 @@ export default {
   z-index: 1;
 }
 
-/* Force-strip native controls — the video is ambient decoration, not meant to be interacted with */
+/* Video is ambient decoration — strip native controls so users don't try to pause the atmosphere */
 .background-video::-webkit-media-controls {
   display: none !important;
 }
